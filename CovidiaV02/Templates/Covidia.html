@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Covid-19 HEALTH SCREENING</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="{% static 'styles/Covidia.css' %}">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <section class="bot-container">
+    <header class="bot-header">
+      <div class="bot-header-title">
+        <i class="bot-title-txt"></i> Covid-19 Health Screening <i class=""></i>
+      </div>
+    </header>
+
+    <main class="UserChat template-default-font">
+      <div class="bot left-msg">
+        <div class="bot-bubble-container">
+         <!-- <div class="bot-image"></div> -->
+          <div class="bot-bubble bot-bubble-Query">
+            <div class="bot-info">
+              <div class="bot-info-name">Covidia</div>
+              <div class="bot-info-time"></div>
+            </div>
+            <div class="bot-text">
+            Please answer my questions correctly, don’t panic, everything’s gonna be alright. 
+            </div>
+         </div>
+        </div>
+      </div>
+
+      <div class="bot left-msg">
+        <div class="bot-bubble-container">
+          <div class="bot-image"></div>
+            <div class="bot-bubble bot-bubble-Query">
+              <div class="bot-info">
+                <div class="bot-info-name">Covidia</div>
+                <div class="bot-info-time"></div>
+              </div>
+              <div class="bot-text">
+               Did you have a close contact with anyone diagnosed with Covid-19 in last two weeks?
+              </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+  <div class="container-form template-default-font">
+    <form class="UserTxtInputarea">
+      <input type="text" class="UserTxtInput template-default-font" id="_userInput" placeholder="Please enter your answer here...">
+      <i id="startMicBtn" class="bi bi-mic microphone-ico"></i>
+      <button type="submit" class="template-default-font msger-send-btn">Send</button>
+    </form>
+  </div>
+  </section>
+  <!-- partial -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script> // speech to text part
+    var speechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
+    var recognition = new speechRecognition();
+    var content = '';
+    var textbox = $("#_userInput");
+    recognition.continuous = true;
+    
+    recognition.onresult = function(event){
+        var current = event.resultIndex;
+        var transcript = event.results[current][0].transcript;
+        textbox.val(transcript);
+    };
+    
+    let count = 0;
+    $("#startMicBtn").click(function (event){
+        if(count%2==0) 
+        {
+            $(".microphone-ico").css('color', 'red');
+            if(content.length) {
+                content +='';
+            }
+            recognition.start();
+            count++;
+        }
+        else
+        {
+            $(".microphone-ico").css('color', 'black');
+            content = '';
+            recognition.stop();
+            count++;
+        }
+    });
+    
+    textbox.on('input', function(){
+        content = $(this).val();
+    });
+    
+    
+    function get(selector, root = document) {
+        return root.querySelector(selector);
+    }
+    
+    const msgerUserForm = get(".UserTxtInputarea"); //
+    const msgerUserInput = get(".UserTxtInput");    // get element by class
+    const userChat = get(".UserChat");      //
+    const BOT_NAME = "Covidia";
+    const USER_NAME = "You";
+    
+    function changeDateformat(date) { // get the real time
+        const h = "0" + date.getHours();
+        const m = "0" + date.getMinutes();
+        return `${h.slice(-2)}:${m.slice(-2)}`;
+    }
+    
+    function appendUserReply(name, side, text) { // make the message box
+        const msgHTML = // template
+        `
+        <div class="bot ${side}-msg">
+          <div class="bot-bubble-container">
+                  <div class="bot-bubble bot-bubble-user">
+                      <div class="bot-info-user">
+                        <div class="bot-info-name clr-green">${name}</div>
+                        <div class="bot-info-time clr-green">${changeDateformat(new Date())}</div>
+                      </div>
+                      <div class="bot-user-text">${text}</div>
+                  </div> 
+                  <div class="bot-image-right"></div> 
+              </div>      
+          </div>
+        </div>
+        `;
+
+        userChat.insertAdjacentHTML("beforeend", msgHTML);
+        userChat.scrollTop += 500;
+    }
+    function appendQuestion(name, side, text) { // make the message box
+        const msgHTML = // template
+        `
+         <div class="bot ${side}-msg">
+            <div class="bot-bubble-container">
+               <div class="bot-image"></div>
+                  <div class="bot-bubble bot-bubble-Query">
+                    <div class="bot-info">
+                      <div class="bot-info-name">${name}</div>
+                      <div class="bot-info-time">${changeDateformat(new Date())}</div>
+                    </div>
+                    <div class="bot-text">${text}</div>
+                  </div>
+              </div>
+            </div>
+         </div>
+        `;
+        userChat.insertAdjacentHTML("beforeend", msgHTML);
+        userChat.scrollTop += 500;
+    }
+    
+    var questionList = [ // list of chatbot's questions
+        "How old are you?",
+        "Have you experienced a new loss of taste or smell?",
+        "Do you have a chills?",
+        "Do you have a fever, Now measure your temperature, tell me ?",
+        "Are you having cough?",
+        "Are you having a sore throat?",
+        "Do you have shortness of breath or difficulty breathing?",
+        "Are you experiencing a headache?",
+        "Are you having runny nose or nasal congestion?",
+        "Are you feeling fatigued?",
+        "Do you have muscle or body aches?",
+        "Are you experiencing diarrhea?"
+    ];
+    
+    var userResponse = []; // queue to store user's answers
+    let cntuserSymptoms = 0; // count the number of symptoms user has
+    let adviceUser = ''; // chatbot's advice to user
+    msgerUserForm.addEventListener("submit", event => { // event each time user enter a message
+        event.preventDefault();
+          var input_value = $('#_userInput').val();
+      if(input_value === ''){
+            // If it's empty, trigger an alert message
+            alert('Input field is empty, Could you give me the answer to the question.');
+      }else{
+        let usermsg = msgerUserInput.value; // the message user enters
+        appendUserReply(USER_NAME, "right", usermsg);
+        if(usermsg.toLowerCase().includes("yes")) 
+        {
+            usermsg = "Yes";
+            cntuserSymptoms++;
+        }
+        else if(usermsg.toLowerCase().includes("no")) usermsg = "No";
+        else if(parseFloat(usermsg)>37) cntuserSymptoms++;
+        userResponse.push(usermsg); // push the user's message into queue
+        if(!usermsg) return;
+        msgerUserInput.value = "";
+    
+        let botmsg = questionList.shift(); // chatbot will ask in top-bottom order
+        setTimeout(() => {
+            if(botmsg!=undefined) appendQuestion(BOT_NAME, "left", botmsg); 
+            else // when chatbot already asked all questions
+            {
+                if(cntuserSymptoms>2) adviceUser = "Based on your symptoms of Covid 19. It's advisable to get tested for COVID-19 and seek medical attention."
+                else adviceUser = "You have no obvious symptoms related to Covid-19 😄. It is recommended that you engage in regular physical exercise, refrain from attending crowded gatherings, and keep me updated on your health status on a daily basis."
+                let userReview = `
+                                <p>Please review the details that you have ENTERED to ensure their accuracy and completeness :</p>
+                                <p>Close contact with infected person: ${userResponse[0]}</p>
+                                <p>Age: ${userResponse[1]}</p>
+                                <p>Lost taste or smell: ${userResponse[2]}</p>
+                                <p>Having chills: ${userResponse[3]}</p>
+                                <p>Temperature: ${userResponse[4]}</p>
+                                <p>Having cough: ${userResponse[5]}</p>
+                                <p>Having a sore throat: ${userResponse[6]}</p>
+                                <p>Shortness of breath: ${userResponse[7]}</p>
+                                <p>Having headache: ${userResponse[8]}</p>
+                                <p>Having runny nose or nasal congestion: ${userResponse[9]}</p>
+                                <p>feeling fatigued: ${userResponse[10]}</p>
+                                <p>Runny nose or nasal congestion: ${userResponse[11]}</p>
+                                <p>Having muscle or body aches: ${userResponse[12]}</p>
+                                <p>experiencing diarrhea: ${userResponse[13]}</p>
+                `;
+                appendUserReply(BOT_NAME, "left", userReview);
+                appendUserReply(BOT_NAME, "left", adviceUser);
+                // final bot's message
+                let userConclude = `
+                <p>If you wish to verify once more, please click the link :<a href={%url 'CovidiaTest' %}>Covid Checking</a></p>
+                <p><a href ='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public'> Click here </a> for more information regarding coivd19 </p>`;
+                appendUserReply(BOT_NAME, "left", userConclude);
+            }
+        }, 800);
+      }
+    });</script>
+    <button type= 'submit'><a href={%url 'SignOut'%}>SignOut</a></button>
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/a7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .login-container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin-top: 80px;
+
+  }
+
+  .login-container h1 {
+    text-align: center;
+  }
+
+  .login-container input[type="text"],
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    MARGIN-TOP: 5PX;
+  }
+
+  .login-container button {
+    background-color: #4ec3c6;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: medium;
+    font-weight: bolder;
+  }
+
+  .login-container button:hover {
+    background-color: #43d8dc;
+  }
+  .covidiaicon{
+    background-image: url('../images/a7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

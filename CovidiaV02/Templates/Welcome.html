@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'styles/Welcome.css' %}">
+</head>
+<body>
+
+<div class="card">
+    <h1 class="text-center"> Covidia - Check for Covid-19 </h1>
+    <p class="text-center"><a href ='https://www.who.int/emergencies/diseases/novel-coronavirus-2019'> Click here </a> for more information regarding Covid-19 </p>
+    <p class="text-center"><a href={%url 'CovidiaTest' %}> Click here to interact with Covidia </a> </p>
+    <p class="para-text">
+        <ul>
+                <div class="bold">
+                    Keep yourself and others safe: Do it all!
+                    Protect yourself and those around you:
+                </div>
+        
+            <div class="spacing">
+                <li>Get vaccinated as soon as it’s your turn and follow local guidance on vaccination.</li>
+                <li>Keep physical distance of at least 1 metre from others, even if they don’t appear to be sick. Avoid crowds and close contact.</li>
+                <li>Wear a properly fitted mask when physical distancing is not possible and in poorly ventilated settings.</li>
+                <li>Clean your hands frequently with alcohol-based hand rub or soap and water.</li>
+                <li>Cover your mouth and nose with a bent elbow or tissue when you cough or sneeze. Dispose of used tissues immediately and clean hands regularly. </li>
+                <li>If you develop symptoms or test positive for COVID-19, self-isolate until you recover.</li>
+            </div>
+        </ul>
+        
+        <ul>
+        <div class="bold">Wear a mask properly
+        To properly wear your mask:</div>
+            <div class="spacing">
+                <li>Make sure your mask covers your nose, mouth and chin.</li>
+                <li>Clean your hands before you put your mask on, before and after you take it off, and after you touch it at any time.</li>
+                <li>When you take off your mask, store it in a clean plastic bag, and every day either wash it if it’s a fabric mask or dispose of it in a trash bin if it’s a medical mask.</li>
+                <li>Don’t use masks with valves.</li>
+            </div>
+        </ul>
+        
+        <ul>
+        <div class="bold">More about masks:</div>
+            <div class="spacing">
+                <li>When and how to wear masks</li>
+                <li>Questions and answers about children and masks</li>
+                <li>Guidance for decision makers and health workers</li>
+            </div>
+        </ul>
+        
+        <ul>
+            <div class="spacing">
+                <li>Make your environment safer</li>
+                <li>The risks of getting COVID-19 are higher in crowded and inadequately ventilated spaces where infected people spend long periods of time together in close proximity.</li>
+                <li>Outbreaks have been reported in places where people have gather, often in crowded indoor settings and where they talk loudly, shout, breathe heavily or sing such as restaurants, choir practices, fitness classes, nightclubs, offices and places of worship.</li>
+            </div>
+        </ul>
+
+        <ul>
+        <div class="bold">To make your environment as safe as possible:</div>
+            <div class="spacing">
+                <li>Avoid the 3Cs: spaces that are closed, crowded or involve close contact.</li>
+                <li>Meet people outside. Outdoor gatherings are safer than indoor ones, particularly if indoor spaces are small and without outdoor air coming in.</li>
+                <li>If you can’t avoid crowded or indoor settings, take these precautions:</li>
+                <li>Open a window to increase the amount of natural ventilation when indoors.</li>
+                <li>Wear a mask (see above for more details).</li>
+            </div>
+        </ul>
+        
+        <ul>
+        <div class="bold">More on:</div>
+        
+        <div class="spacing">
+            <li>Small public gatherings</li>
+            <li>Ventilation and air conditioning (for the general public)</li>
+            <li>Ventilation and air conditioning (for people who manage public spaces and buildings) </li>
+        </div>
+        </ul>        
+
+        <ul>
+        <div class="bold">Keep good hygiene</div>
+        By following good respiratory hygiene you protect the people around you from viruses that cause colds, flu and COVID-19. 
+        
+        To ensure good hygiene you should:
+        
+        <div class="spacing">
+            <li>Regularly and thoroughly clean your hands with either an alcohol-based hand rub or soap and water. This eliminates germs that may be on your hands, including viruses.</li>
+            <li>Cover your mouth and nose with your bent elbow or a tissue when you cough or sneeze. Dispose of the used tissue immediately into a closed bin and wash your hands.</li>
+            <li>Clean and disinfect surfaces frequently, especially those which are regularly touched, such as door handles, faucets and phone screens.</li>
+        </div>
+        </ul>
+
+        <ul>
+        <div class="bold">What to do if you feel unwell
+        If you feel unwell, here’s what to do. </div>
+        <div class="spacing">
+            <li>If you have a fever, cough and difficulty breathing, seek medical attention immediately. Call by telephone first and follow the directions of your local health authority.</li>
+            <li>Know the full range of symptoms of COVID-19. The most common symptoms of COVID-19 are fever, dry cough, tiredness and loss of taste or smell. Less common symptoms include aches and pains, headache, sore throat, red or irritated eyes, diarrhoea,  a skin rash or discolouration of fingers or toes.</li>
+            <li>Stay home and self-isolate for 10 days from symptom onset, plus three days after symptoms cease. Call your health care provider or hotline for advice. Have someone bring you supplies. If you need to leave your house or have someone near you, wear a properly fitted mask to avoid infecting others.</li>
+            <li>Keep up to date on the latest information from trusted sources, such as WHO or your local and national health authorities. Local and national authorities and public health units are best placed to advise on what people in your area should be doing to protect themselves.</li>
+        </div>
+        </ul>
+    </p>
+</div>
+
+</body>
+</html>

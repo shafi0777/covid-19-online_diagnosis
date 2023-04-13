@@ -1,0 +1,180 @@
+body {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .clr-green{
+    color:green;
+  }
+
+  .left-msg{
+    clear: both;
+  }
+
+  .right-msg{
+    clear: left;
+    float: right;
+  }
+
+  .template-default-font{
+    font-style: oblique;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6a6666;
+    letter-spacing: 0.2px; /* increases the spacing between letters */
+  }
+  
+  .bot-container{
+    border-color: darkgrey;
+    border-style: solid;
+    border-width: medium;
+    border-radius: 15px;
+    padding:15px;
+  }
+  
+  .UserChat{
+    padding-right: 20px;
+    height: 430px;
+    overflow-y: scroll; /* This will add a vertical scroll bar to the container */  
+    padding: 20px;
+    overflow-y: scroll;
+    margin: 20px;
+    border-color: darkgrey;
+    border-style: solid;
+    border-width: medium;
+    padding: 20px 10px;
+    background-image: url('../images/covidia.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  
+  }
+  .bot-header{
+    background-color: #108885;
+    border-color: darkgrey;
+    border-style: solid;
+    border-width: medium;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 25px;
+    color:#fff;
+  }
+  .bot-header-title{
+    font-size: 28px;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: -webkit-center;
+    text-align: center;
+  }
+  .bot-title-txt{
+    font-weight: 100;
+  }
+  .bot-info-name , .bot-info-time {
+    font-family:verdana;
+    color:red;
+    font-size: 12px;
+  }
+  
+
+  .bot-bubble {
+      max-width: 60%;
+      margin-bottom: 10px;
+      position: relative;
+      font-size: 18px;
+      background: #fafafa;
+      background: #f7ffff;
+      border: 1px solid #e1e1e1;
+      /* border-color: hsl(var(--bg-bubble-h),var(--bg-bubble-s),calc(var(--bg-bubble-l) - .1%)); */
+      padding: 10px 13px;
+      position: relative;
+    }
+
+  .bot-bubble-Query {
+      float: left;
+      background: var(--bg-bubble,#f7ffff);
+      border-radius: 15px 15px 15px 0px;
+   }
+
+  .bot-bubble-container {
+       display: inline;
+   }
+  
+  .bot-bubble-user {
+      background-color: #f2f2f2;
+      border-radius: 15px 15px 0px 15px;
+      float:left;
+   }
+  .bot-image {
+      float: left; /* This will float the profile picture to the left of the message */
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      background-color: #CCC;
+      border-radius: 50%;
+      background-image: url('../images/corona.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center
+    }
+
+  .bot-image-right {
+      float: right; /* This will float the profile picture to the left of the message */
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      background-color: #CCC;
+      border-radius: 50%;
+      background-image: url('../images/user.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center
+   }  
+  
+  .container-form {
+      margin: auto;
+  }
+
+  [class^="bi-"]::before, [class*=" bi-"]::before {
+      font-size: 30px !important;
+  }
+
+  .UserTxtInput {
+      border-color: #afa9a9 !important;
+      border-style: solid;
+      border-width: medium;
+      border-radius: 10px;
+      padding: 10px;
+      width: 55%;
+      margin: 0px 5px;
+   }
+  
+  .UserTxtInputarea{
+      vertical-align: -webkit-baseline-middle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: #c1c1c1;
+      border-color: white;
+      /* border-style: solid; */
+      /* border-width: medium; */
+      border-radius: 10px;
+      margin: 7px 28px;
+      padding: 8px 0px;
+   }
+    .UserTxtInput:focus {
+      background-color: #f7ffff;
+   }
+    .msger-send-btn {
+      margin: 0px 10px;
+      padding: 10px 20px;
+      background-color: #108885;
+      border-color: #e9e9e2;
+      border-width: medium;
+      border-radius: 10px;
+      color: #fff;
+      font-size: medium;
+      font-weight: bold;
+      border-style: groove;
+    }
+
